@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Trang Chủ CĐT - Cơ Động Thôn</title>
+    <meta name="description" content="Trang Chủ CĐT - Cơ Động Thôn">
+    <link rel="stylesheet" href="./assets/styles.css">
+    <link rel="shortcut icon" type="image/x-icon" href="./assets/logo-128.png">
+
+</head>
+<body>
+    <div class="landing-container">
+        <div class="landing-left">
+            <div class="landing-decoration"></div>
+            <div class="landing-info">
+                <div class="logo">
+                    <img src="./assets/logo-128.png" alt="CĐT Gaming Server">
+                </div>
+                <h2 class="landing-info-pretitle">CHÀO MỪNG BẠN ĐÃ TỚI</h2>
+                <h1 class="landing-info-title">CƠ ĐỘNG THÔN</h1>
+                <p class="landing-info-text">SERVER GAME ĐA VŨ TRỤ PROVIP NHẤT VIỆT NAM!</p>
+            </div>
+        </div>
+        <div class="landing-right">
+            <div class="landing-form">
+                <button id="join_discord" class="form-box horizontal-rectangle">
+                    <span id="join_discord_summary" class="tooltip">...</span>
+                    <img class="form-box-decoration overflowing" src="./assets/rocket.png" alt="CĐT Gaming Server">
+                    <h2 class="form-box-title">Tham gia Discord</h2>
+                </button>
+            </div>
+        </div>
+    </div>
+    <script type="module">
+        (async function discord(server_id) {
+            const btnInvite = document.querySelector(`button#join_discord`);
+            const btnInviteSummary = document.querySelector(`#join_discord_summary`);
+
+            var instant_invite = "https://discord.gg/KbVkzSG3kG"; 
+
+            async function refresh () {
+                try {
+                    var json = await(await(fetch(`https://discord.com/api/guilds/${server_id}/widget.json`))).json();
+                    instant_invite = json.instant_invite;
+                    btnInviteSummary.textContent = `Hiện có hơn ${json.channels.length} kênh thoại với hơn ${json.members.length} thành viên trực tuyến!`;
+                } catch (error) {
+                    console.error(error);
+                    instant_invite = "https://discord.gg/KbVkzSG3kG";
+                    btnInviteSummary.textContent = `Hiện có hơn 20 kênh thoại với hơn 5 thành viên trực tuyến!`;
+                }
+            }
+
+            const popup_width = 500;
+            const popup_height = 700;
+
+            const left_for_center = screen.width/2 - popup_width/2;
+            const top_for_center = screen.height/2 - popup_height/2;
+
+            btnInvite.addEventListener("mouseenter", refresh);
+            btnInvite.addEventListener("click", async _=> window.open(instant_invite, "_blank", `popup=true,scrollbars=false,resizable=false,menubar=false,width=${popup_width}px,height=${popup_height}px,left=${left_for_center},top=${top_for_center}`));
+
+            refresh();
+        })(`818503073579925514`);
+    </script>
+</body>
+</html>
