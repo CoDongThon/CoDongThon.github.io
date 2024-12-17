@@ -10,6 +10,7 @@ body {
 .landing-container {
   display: flex;
   height: 100vh;
+  flex-direction: column;
 }
 
 .landing-left,
@@ -82,7 +83,7 @@ body {
   margin-bottom: 1rem;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 844px) {
   .landing-container {
     flex-direction: column;
   }
@@ -91,6 +92,66 @@ body {
   .landing-right {
     flex: auto;
     height: 50%;
+  }
+
+  .landing-info {
+    padding: 1rem;
+  }
+
+  .landing-info-pretitle {
+    font-size: 1.2rem;
+  }
+
+  .landing-info-title {
+    font-size: 2.5rem;
+  }
+
+  .landing-info-text {
+    font-size: 1rem;
+  }
+
+  .form-box {
+    padding: 1.5rem;
+  }
+
+  .form-box-title {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .landing-container {
+    flex-direction: column;
+  }
+
+  .landing-left,
+  .landing-right {
+    flex: auto;
+    height: 50%;
+  }
+
+  .landing-info {
+    padding: 0.5rem;
+  }
+
+  .landing-info-pretitle {
+    font-size: 1rem;
+  }
+
+  .landing-info-title {
+    font-size: 2rem;
+  }
+
+  .landing-info-text {
+    font-size: 0.9rem;
+  }
+
+  .form-box {
+    padding: 1rem;
+  }
+
+  .form-box-title {
+    font-size: 1rem;
   }
 }
 
