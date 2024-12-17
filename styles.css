@@ -1,0 +1,191 @@
+body {
+  font-family: Roboto, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+.landing-container {
+  display: flex;
+  height: 100vh;
+}
+
+.landing-left,
+.landing-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.landing-left {
+  background-color: #222b3d;
+}
+
+.landing-right {
+  background-color: #1c2332;
+}
+
+.landing-info {
+  text-align: center;
+  max-width: 600px;
+  padding: 2rem;
+}
+
+.landing-info-pretitle {
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.landing-info-title {
+  color: #fff;
+  font-size: 3rem;
+  font-weight: 900;
+  margin-bottom: 1rem;
+}
+
+.landing-info-text {
+  color: #fff;
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.landing-form {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+}
+
+.form-box {
+  background-color: #232c40;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  text-align: center;
+}
+
+.form-box-decoration {
+  background-color: #232c40;
+  max-width: 100px;
+  margin-bottom: 1rem;
+}
+
+.form-box-title {
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  .landing-container {
+    flex-direction: column;
+  }
+
+  .landing-left,
+  .landing-right {
+    flex: auto;
+    height: 50%;
+  }
+}
+
+@media (min-width: 769px) {
+  .landing-container {
+    flex-direction: row;
+  }
+
+  .landing-left,
+  .landing-right {
+    flex: 1;
+    height: 100%;
+  }
+}
+
+/* DK189 */
+
+.landing-form .form-box {
+  transform: translate(0px, 0px);
+  opacity: 1;
+  visibility: visible;
+  z-index: 1;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: .15s ease-in-out;
+  border: 0;
+}
+
+.landing-form .form-box:hover {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 17px 20px 7px;
+  transform: translate(-50%, -51%) !important;
+}
+
+.landing-form .form-box:active {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 11px 20px 7px;
+  transform: translate(-50%, -49%) !important;
+}
+
+.landing-form .form-box .tooltip {
+  position: absolute;
+  top: 0%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-10%);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  background-color: #222b3d;
+  color: #fff;
+  border-radius: 0.3em;
+  box-shadow: 0px 14px 8px 2px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  font-size: 14px;
+  width: auto;
+  padding: 1em 1em;
+  white-space: nowrap;
+  z-index: -1;
+}
+
+.landing-form .form-box:hover .tooltip {
+  top: -25%;
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+#discord_popup {
+  display: block;
+  position: fixed;
+  --width: 350px;
+  --height: 500px;
+  width: var(--width);
+  height: var(--height);
+  left: calc(50% - var(--width)/2);
+  top: calc(50% - var(--height)/2);
+  z-index: 999999;
+}
+
+#discord_popup .close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  background-color: #3f4c6b;
+  height: 30px;
+  width: 30px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  cursor: pointer;
+  font-weight: 600;
+  transition: .3s ease;
+  border: 0;
+}
+
+#discord_popup .close:hover {
+  background-color: rgba(255, 0, 0, 0.603);
+}
